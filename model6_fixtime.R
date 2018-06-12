@@ -139,6 +139,6 @@ if (!all(a_fix_time_heatmap[1,1]==a_fix_time_heatmap)) {
   title = 'Fixation Time for a allele'
   heatmap.2(a_fix_time_heatmap,Rowv=FALSE, Colv=FALSE,dendrogram='none',main=title,xlab='Benefit to Males',ylab='Cost to Females',key=T,key.title='Fixation Time',key.xlab='Generations',density.info='none',trace='none',cexCol=1.25,cexRow=1.25,breaks=seq(0,2500,50),col=redblue(50))
 } else {
-  print(paste('Fixation Time for a allele is the Same Across all (sf,sm) values: ', y_fix_time_heatmap[1,1]))
+  print(paste('Fixation Time for a allele is the Same Across all (sf,sm) values: ', a_fix_time_heatmap[1,1]))
 }
 dev.off()
