@@ -14,7 +14,7 @@ generations <- 5000
 a<-c(0,1,1,0)
 y<-c(0,0,1,1)
 plot(a,y,pch=".",main="autosome-Y Father's Curse Dynamics",xlab='a Allele Freq',ylab='y Alelle Freq',font.lab=1.5,cex.main=2,cex.lab=1.35,cex.axis=1.25)
-legend(0.9,0.8, legend=c(expression("s" [f]* " < s"[m]), expression("s" [f]* " > s"[m])),
+legend(0.8,0.8, legend=c(expression("s" [f]* " < s"[m]), expression("s" [f]* " > s"[m])),
        col=c("red", "black"),pch='.',pt.cex=5)
 
 for (itest in 1:100){
