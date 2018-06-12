@@ -59,11 +59,11 @@ for (sf_val in sf_list) {
           x_fix_gen <- gen
           x_fix <- TRUE
         }
-        if (current_x > 0.9999 & x_fix==FALSE) {
-          x_fix_gen <- gen
-          x_fix <- TRUE
+        if (current_m > 0.9999 & m_fix==FALSE) {
+          m_fix_gen <- gen
+          m_fix <- TRUE
         }
-        if ((x_fix == TRUE) & (x_fix == TRUE)) {
+        if ((x_fix == TRUE) & (m_fix == TRUE)) {
           break
         }
         # Weight each male and female genotype by fitness and normalize
