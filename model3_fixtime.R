@@ -35,7 +35,7 @@ for (sf_val in sf_list) {
       M_allele = 0.99
       m_allele = 0.01
       
-      current_y <- 0.01
+      current_y <- y
       current_m <- m_allele
       y_fix <- FALSE
       m_fix <- FALSE
