@@ -1,15 +1,19 @@
-# Model 1:  mito-auto Mother's curse - 11 Mar 2018
-# Invasion and dynamics of Mother's curse mitochondrial type with autosomal restorer
+# Model 2:  mito-X Mother's curse - 11 March 2018
+# Invasion and dynamics of Mother's curse mitochondrial type with X-linked restorer
 
-# female genotypes AAM AaM aaM     AAm  Aam  aam
+# female genotypes XXM XxM xxM     XXm  Xxm  xxm
 #   and fitnesses   1   1   1      1+sf 1+sf 1+sf
 
-#   male genotypes AAMb AaMb aaMb     AAmb  Aamb        aamb
-#   and fitnesses   1   1   1      1-sm 1-sm+sa/2  1-sm+sa
+#   male genotypes  XM      xM      Xm      xm
+#   and fitnesses   1       1       1-sm    1-sm+sx
 
-# four egg types:  AM aM   Am   am
-# two sperm types: A   a
+# four egg types:  XM xM   Xm   xm
+# two sperm types:  X  and x
 
+# Specify initial genotype frequencies (6 female, 4 male)
+
+
+## 3 paramters of interest, sf, sm, and sx
 library(gplots)
 library(reshape2)
 
