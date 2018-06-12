@@ -27,11 +27,11 @@ fix_time.df <- data.frame(matrix(NA,nrow=(length(sf_list)*length(sm_list)*length
 colnames(fix_time.df) <- c('sf','sm','sx' ,'x_fix_time','m_fix_time')
 row_update <- 1
 
-######### MODEL 1 ##########
+######### MODEL 2 ##########
 for (sf_val in sf_list) {
   for (sm_val in sm_list) {
     for (sx_val in sx_list) {
-      # Specify initial genotype frequencies (6 female, 6 male)
+      # Specify initial genotype frequencies (6 female, 4 male)
       X = 0.99
       x = 0.01
       M = 0.99
