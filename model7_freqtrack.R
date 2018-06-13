@@ -10,7 +10,7 @@
 # two egg types:     X and  x
 # four sperm types:  X   x    Y    y
 
-generations <- 10
+generations <- 100
 x <-c(0,1,1,0)
 y <-c(0,0,1,1)
 plot(x,y,pch=".",main="X-Y Father's Curse Dynamics",xlab='x Allele Freq',ylab='y Alelle Freq',font.lab=1.5,cex.main=2,cex.lab=1.35,cex.axis=1.25)
@@ -69,14 +69,14 @@ for (itest in 1:100){
     Xx=eX*sx+ex*sX
     xx=ex*sx
     
-    #if (!(isTRUE(all.equal(XX + Xx + xx,1)))) {print (XX + Xx + xx)}
+    if (!(isTRUE(all.equal(XX + Xx + xx,0.5)))) {print (XX + Xx + xx)}
     
     XY=eX*sY
     xY=ex*sY 
     Xy=eX*sy
     xy=ex*sy
     
-    #if (!(isTRUE(all.equal(XY + xY + Xy + xy,1)))) {print (XY + xY + Xy + xy)}
+    if (!(isTRUE(all.equal(XY + xY + Xy + xy,0.5)))) {print (XY + xY + Xy + xy)}
     
     current_x_female <- (2*xx + Xx)/(2*(XX+Xx+xx))
     current_x_male <- (xY + xy)/(XY+xY+Xy+xy)
