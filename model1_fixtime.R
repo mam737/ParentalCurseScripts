@@ -12,7 +12,6 @@
 
 # Specify initial genotype frequencies (6 female, 6 male)
 
-
 # Weight each male and female genotype by fitness and normalize
 
 library(gplots)
