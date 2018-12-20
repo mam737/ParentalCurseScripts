@@ -10,17 +10,24 @@
 # two egg types:     A and  a
 # four sperm types:  AY   aY    Ay    ay
 
+library(ggplot2)
+
 generations <- 5000
-a<-c(0,1,1,0)
-y<-c(0,0,1,1)
+a <- c(0,1,1,0)
+y <- c(0,0,1,1)
+
+set.seed(1865)
 plot(a,y,pch=".",main="autosome-Y Father's Curse Dynamics",xlab='a Allele Freq',ylab='y Alelle Freq',font.lab=1.5,cex.main=2,cex.lab=1.35,cex.axis=1.25)
 legend(0.8,0.8, legend=c(expression("s" [f]* " < s"[m]), expression("s" [f]* " > s"[m])),
        col=c("red", "black"),pch='.',pt.cex=5)
+sel_coef_val.df <- data.frame(matrix(NA, nrow = 100, ncol = 2))
+colnames(sel_coef_val.df) <- c('sf_val','sm_val')
 
 for (itest in 1:100){
   #Randomly draw values of sf and sm
-  sf_val=.2*runif(1)
+  sf_val=.2*runif(1)s
   sm_val=.2*runif(1)
+  sel_coef_val.df[itest,] <- c(sf_val,sm_val)
   
   # Specify initial genotype frequencies (3 female, 6 male)
   A = 0.75
@@ -97,3 +104,6 @@ for (itest in 1:100){
     } 
   }
 }
+
+ggplot(sel_coef_val.df, aes(x=sf_val,y=sm_val)) + geom_point()
+

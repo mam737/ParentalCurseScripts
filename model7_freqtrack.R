@@ -10,23 +10,29 @@
 # two egg types:     X and  x
 # four sperm types:  X   x    Y    y
 
-generations <- 100
+library(ggplot2)
+pdf('/Users/Minie/Desktop/m7_test.pdf',width=11,height=8.5)
+generations <- 10000
 x <-c(0,1,1,0)
 y <-c(0,0,1,1)
+set.seed(1865)
 plot(x,y,pch=".",main="X-Y Father's Curse Dynamics",xlab='x Allele Freq',ylab='y Alelle Freq',font.lab=1.5,cex.main=2,cex.lab=1.35,cex.axis=1.25)
 legend(0.8,0.8, legend=c(expression("s" [f]* " < s"[m]), expression("s" [f]* " > s"[m])),
        col=c("red", "black"),pch='.',pt.cex=5)
+sel_coef_val.df <- data.frame(matrix(NA, nrow = 100, ncol = 2))
+colnames(sel_coef_val.df) <- c('sf_val','sm_val')
 
 for (itest in 1:100){
   #Randomly draw values of sf and sm
   sf_val=.2*runif(1)
   sm_val=.2*runif(1)
+  sel_coef_val.df[itest,] <- c(sf_val,sm_val)
   
   # Specify initial genotype frequencies (3 female, 4 male)
-  X = 0.75
-  x = 0.25
-  Y = 0.75
-  y = 0.25
+  X = 0.5
+  x = 0.5
+  Y = 0.5
+  y = 0.5
   #Initialize genotype frequencies
   #Females
   XX = X * X
@@ -91,3 +97,7 @@ for (itest in 1:100){
     } 
   }
 }
+
+ggplot(sel_coef_val.df, aes(x=sf_val,y=sm_val)) + geom_point()
+
+dev.off()

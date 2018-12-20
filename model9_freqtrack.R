@@ -10,23 +10,29 @@
 # four egg types:  Z    z     W     w
 # two sperm types:  Z  and  z
 
+library(ggplot2)
+pdf('/Users/Minie/Desktop/m9_test.pdf',width=11,height=8.5)
 generations <- 10000
+set.seed(1865)
 z<-c(0,1,1,0)
 w<-c(0,0,1,1)
 plot(z,w,pch=".",main="W-Z Mother's Curse Dynamics",xlab='z Allele Freq',ylab='w Alelle Freq',font.lab=1.5,cex.main=2,cex.lab=1.35,cex.axis=1.25)
 legend(0.8,0.8, legend=c(expression("s" [f]* " < s"[m]), expression("s" [f]* " > s"[m])),
        col=c("red", "black"),pch='.',pt.cex=5)
+sel_coef_val.df <- data.frame(matrix(NA, nrow = 100, ncol = 2))
+colnames(sel_coef_val.df) <- c('sf_val','sm_val')
 
 for (itest in 1:100){
   #Randomly draw values of sf and sm
   sf_val=.2*runif(1)
   sm_val=.2*runif(1)
+  sel_coef_val.df[itest,] <- c(sf_val,sm_val)
   
   # Specify initial genotype frequencies (4 female, 3 male)
-  Z = 0.75
-  z = 0.25
-  W = 0.75
-  w = 0.25
+  Z = 0.5
+  z = 0.5
+  W = 0.5
+  w = 0.5
   
   #Initialize genotype frequencies
   #Females
@@ -90,3 +96,7 @@ for (itest in 1:100){
     
   }
 }
+
+ggplot(sel_coef_val.df, aes(x=sf_val,y=sm_val)) + geom_point()
+
+dev.off()
